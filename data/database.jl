@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Database creation for RADCAL
 #
 # This file contains the required tooling for generating a database
@@ -5,9 +6,7 @@
 # space of the current model is found below in `datasampler!`.
 
 import Random
-
-include("..\\src\\RadCalNet.jl")
-import .RadCalNet.Database as rd
+import RadCalNet.Database as rd
 
 # Provide a seed at start-up for *maybe* reproducible builds.
 Random.seed!(42)
@@ -59,7 +58,7 @@ end
 A = sampledatabase()
 
 # If random seed is working this should be the output (truncated).
-# 
+#
 # 9×26 Matrix{Float32}:
 # …  1650.0  1850.0  2.1  0.5  0.0  …  0.127997       1.4369f5   0.784483
 #     890.0  1760.0  2.0  1.0  0.0     0.256072   52761.9        0.493376

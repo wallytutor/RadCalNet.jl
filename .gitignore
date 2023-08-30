@@ -1,7 +1,11 @@
-## Project
+## Temporaries from RadCal
 *RADCAL.IN
 *RADCAL.OUT
 *TRANS_*.TEC
+
+## Intermediate model dumps
+data/model.jld2
+data/scaler.yaml
 
 ## Julia
 *.jl.*.cov

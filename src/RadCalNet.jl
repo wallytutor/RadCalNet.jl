@@ -1,6 +1,7 @@
 module RadCalNet
 
-VERSION = "v1.0.0"
+# XXX: this is the version of the trained model, not the package!
+MODELVERSION = "v1.0.0"
 
 include("Database.jl")
 include("Modeling.jl")
@@ -8,6 +9,10 @@ include("Modeling.jl")
 using Flux
 using JLD2
 using RadCalNet.Modeling: defaultmodel, loadscaler
+
+const RADCALROOT = "$(dirname(@__FILE__))/$(MODELVERSION)"
+const FILESCALER = "$(RADCALROOT)/scaler.yaml"
+const FILEMODEL  = "$(RADCALROOT)/model.jld2"
 
 """
     getradcalnet(;
@@ -25,9 +30,8 @@ function getradcalnet(;
         fscaler = nothing,
         fmstate = nothing
     )
-    here = "$(dirname(@__FILE__))/$(VERSION)"
-    fscaler = isnothing(fscaler) ? "$(here)/scaler.yaml" : fscaler
-    fmstate = isnothing(fmstate) ? "$(here)/model.jld2"  : fmstate
+    fscaler = isnothing(fscaler) ? FILESCALER : fscaler
+    fmstate = isnothing(fmstate) ? FILEMODEL  : fmstate
 
     model = defaultmodel()
     scaler = (scale) ? loadscaler(fscaler) : identity

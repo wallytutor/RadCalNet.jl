@@ -1,7 +1,7 @@
 name = "RadCalNet"
 uuid = "573d4978-4615-42ee-907a-4f7d0c4f09b5"
 authors = ["Walter Dal'Maz Silva"]
-version = "1.0.0-DEV"
+version = "1.0.0"
 
 [deps]
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"

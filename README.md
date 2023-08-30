@@ -11,7 +11,7 @@ In this project we use the re-implementation of [RadCal](https://github.com/fire
 
 For details of validity ranges and sample space, please check function `datasampler!` at [database.jl](data/database.jl), where random sampling is provided. Indexing of species array is documented at `runradcalinput` in [module RadCalNet.Database](src/Database.jl).
 
-Below we display the quality of fitting of model. One must notice that fitting of emissivity still need a few adjustments, while transmissivity is well predicted over the whole range.
+Below we display the quality of fitting of model. One must notice that fitting of emissivity still needs a few adjustments, while transmissivity is well predicted over the whole range.
 
 ![Model testing](data/testing.png)
 
@@ -26,7 +26,7 @@ x = Float32[1200.0; 1000.0; 2.0; 1.0; 0.1; 0.2; 0.1]
 y = RadCalNet.model(x)
 ```
 
-The array of inputs `x` is defined below.
+The array of inputs `x` is defined below, and `y` provides gas emissitivy and transmissivity, respectively. Notice that `x` must be a column vector with entries of type `Float32`.
 
 | Index | Quantity          | Units | Minimum | Maximum |
 | :---: | :--------------:  | :---: | :-----: | :-----: |

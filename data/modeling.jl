@@ -33,7 +33,7 @@ data = ModelData("$(here)/database.h5")
 dumpscaler(data.scaler, fscaler)
 
 model = defaultmodel()
-trainer = ModelTrainer(data, model, batch = 10_000, epochs = 100)
+trainer = ModelTrainer(data, model, batch = 5_000, epochs = 100)
 
 Flux.adjust!(trainer.optim, 0.01)
 trainonce!(trainer; num = 10_000)
@@ -46,7 +46,8 @@ trainonce!(trainer; num = 1_000_000)
 Flux.adjust!(trainer.optim, 0.0001)
 trainonce!(trainer; num = 100_000) |> plotlosses
 
-plottests(trainer; num = 10_000)
+p = plottests(trainer; num = 10_000)
+save("$(here)/testing.png", p)
 
 X_tests, Y_tests = tests(trainer.data, 2_000_000)
 error = Flux.mae(trainer.model(X_tests |> gpu) |> cpu, Y_tests)

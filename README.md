@@ -8,3 +8,5 @@ Radiation properties machine learning model trained on RadCal.
 ## About
 
 In this project we use the re-implementation of [RadCal](https://github.com/firemodels/radcal) to generate data and train a machine learning model for the prediction of radiative properties, *i.e.* emissivity and transmissivity, of common combustion flue gases. This is done because for real-time calls required, for instance, in CFD applications, use of RADCAL directly might be computationally prohibitive. Thus, a neural network is trained with Tensorflow based on the simulated data and then transformed into C-code that can be called from external programs (Fluent, OpenFOAM, ...). All relevant parameters required by the model are commited in this directory.
+
+For details of validity ranges and sample space, please check function `datasampler!` at [database.jl](data/database.jl), where random sampling is provided. Indexing of species array is documented at `runradcalinput` in [module RadCalNet.Database](src/Database.jl).

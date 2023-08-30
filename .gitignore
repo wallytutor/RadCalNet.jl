@@ -1,3 +1,9 @@
+## Project
+*RADCAL.IN
+*RADCAL.OUT
+*TRANS_*.TEC
+
+## Julia
 *.jl.*.cov
 *.jl.cov
 *.jl.mem

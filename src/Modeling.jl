@@ -17,7 +17,7 @@ using YAML
 using RadCalNet.Database: loaddatabase
 
 # Do not even bother working without a GPU
-@assert CUDA.functional()
+# @assert CUDA.functional()
 
 # Set graphics backend.
 gr()
